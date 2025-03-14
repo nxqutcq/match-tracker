@@ -1,28 +1,8 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { ApiResponse, Match } from '../types'
-
-const fetchMatches = async (): Promise<Match[]> => {
-  const response = await fetch(
-    'https://app.ftoyd.com/fronttemp-service/fronttemp'
-  )
-  if (!response.ok) {
-    throw new Error('Network response was not ok')
-  }
-  const data: ApiResponse = await response.json()
-  return data.data.matches
-}
+import { useMatchesList } from '../services/queries'
 
 const MatchTracker: React.FC = () => {
-  const {
-    data: matches,
-    error,
-    isLoading,
-    refetch,
-  } = useQuery<Match[], Error>({
-    queryKey: ['matches'],
-    queryFn: fetchMatches,
-  })
+  const { data: matches, error, isLoading, refetch } = useMatchesList()
 
   if (isLoading) {
     return <div>Загрузка...</div>
