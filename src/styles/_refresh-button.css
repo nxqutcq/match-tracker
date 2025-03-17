@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   background-color: #eb0237;
-  width: 12.75rem;
   cursor: pointer;
   height: 3.5rem;
   padding: 1rem;
@@ -11,5 +10,5 @@
   top: 2.625rem;
   font-size: 1.125rem;
   font-weight: 600;
-  @apply active:bg-[#A01131] disabled:bg-[#701328] disabled:cursor-not-allowed;
+  @apply active:bg-[#A01131] disabled:bg-[#701328] w-full md:w-[12.75rem] disabled:cursor-not-allowed;
 }

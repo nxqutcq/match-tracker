@@ -15,9 +15,9 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
           <img
             src="/assets/icons/illustrations_role.svg"
             alt="homeTeam-icon"
-            className="w-[48px] h-[48px]"
+            className="w-[auto] h-[auto]"
           />
-          <div>{match.homeTeam.name}</div>
+          <div className="team-name">{match.homeTeam.name}</div>
         </div>
         <div className="flex flex-col items-center gap-[4px] min-h-[55px] max-w-[92px] w-full justify-center">
           <div className="score-text">
@@ -27,7 +27,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
         </div>
         <div className="flex">
           <div className="flex items-center gap-[14px]">
-            <div>{match.awayTeam.name}</div>
+            <div className="team-name">{match.awayTeam.name}</div>
             <img
               src="/assets/icons/illustrations_role.svg"
               alt="awayTeam-icon"
@@ -53,7 +53,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                 {match.homeTeam.players.map((player, index) => (
                   <li
                     key={index}
-                    className="flex items-center gap-[8px] px-[24px] rounded-[4px] bg-[#101318] justify-between"
+                    className="flex items-center gap-[8px] px-[24px] overflow-hidden rounded-[4px] bg-[#101318] justify-between"
                   >
                     <div className="flex gap-[0.5rem] items-center">
                       <img
@@ -68,7 +68,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                 ))}
               </ul>
             </div>
-            <div className="mt-2 flex py-[14px] rounded-[4px] justify-between px-[24px] gap-[0.5rem] text-sm bg-[#101318]">
+            <div className="mt-2 flex py-[14px] overflow-hidden rounded-[4px] justify-between px-[24px] gap-[0.5rem] text-sm bg-[#101318]">
               <p>
                 <span className="text-[#FAFAFA66]">Points:</span> +
                 <span className="text-[#F2F6F6]">{match.homeTeam.points}</span>
@@ -85,7 +85,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                     key={index}
                     className="flex w-full items-center gap-[0.5rem] px-[24px] rounded-[4px] bg-[#101318] justify-between"
                   >
-                    <div className="flex items-center">
+                    <div className="flex items-center overflow-hidden">
                       <img
                         src="/assets/images/avatar_global.svg"
                         className="w-[36px] h-[36px]"
@@ -98,7 +98,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                 ))}
               </ul>
             </div>
-            <div className="mt-2 flex py-[14px] rounded-[4px] justify-between px-[24px] gap-[8px] text-sm bg-[#101318]">
+            <div className="mt-2 flex py-[14px] overflow-hidden rounded-[4px] justify-between px-[24px] gap-[8px] text-sm bg-[#101318]">
               <p>Points: +{match.awayTeam.points}</p>
               <p>Place: {match.awayTeam.place}</p>
               <p>Total Kills: {match.awayTeam.total_kills}</p>
