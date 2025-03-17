@@ -57,7 +57,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                   >
                     <div className="flex gap-[0.5rem] flex-wrap justify-center items-center">
                       <img
-                        src="/assets/images/avatar_global.svg"
+                        src="/assets/images/avatar_global.png"
                         className="w-[36px] h-[36px]"
                         alt="avatar"
                       />
@@ -106,7 +106,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                   >
                     <div className="flex gap-[0.5rem] justify-center items-center">
                       <img
-                        src="/assets/images/avatar_global.svg"
+                        src="/assets/images/avatar_global.png"
                         className="w-[36px] h-[36px]"
                         alt="avatar"
                       />
