@@ -20,12 +20,14 @@ export const StatusDropdown = ({
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="relative w-full md:w-[170px]">
+    <div className="relative w-full md:min-w-[170px]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex text-base min-h-[56px] max-h-[56px] justify-between w-full md:w-[170px] items-center gap-2 px-4 py-2 rounded-lg hover:bg-[#13171C] transition-colors"
+        className={`${
+          isOpen ? '' : 'hover:bg-[#0F1318]'
+        } flex text-base min-h-[56px] max-h-[56px] justify-between w-full md:min-w-[170px] items-center bg-[#0B0E12] gap-2 px-4 py-2 rounded-lg hover:bg-[#13171C] transition-colors`}
       >
-        <span className="text-base gap-[0.75rem]">
+        <span className="text-base text-[#B4B5B6] pl-[1rem] pr-[1.25rem] shrink-0 gap-[0.75rem]">
           {selectedStatus === 'Все статусы' || !selectedStatus
             ? 'Все статусы'
             : selectedStatus}
@@ -42,9 +44,9 @@ export const StatusDropdown = ({
       </button>
 
       <ul
-        className={`absolute z-10 mt-2 w-full bg-[#0B0E12] rounded-lg shadow-lg transition-all duration-300 ease-out transform ${
+        className={`absolute z-10 mt-2 w-full bg-[#0B0E12] rounded-sm shadow-lg transition-all duration-300 ease-out transform ${
           isOpen
-            ? 'opacity-100 translate-y-0'
+            ? 'opacity-100 bg-[#0F1318] translate-y-0'
             : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
@@ -55,11 +57,11 @@ export const StatusDropdown = ({
               onStatusChange(status === 'Все статусы' ? null : status)
               setIsOpen(false)
             }}
-            className={`px-4 py-[0.625rem] cursor-pointer hover:bg-[#13171C] ${
+            className={`px-[0.75rem] rounded-sm py-[0.5rem] min-h-[3rem] items-center flex justify-start cursor-pointer hover:bg-[#13171C] ${
               selectedStatus === status ||
               (status === 'Все статусы' && !selectedStatus)
-                ? 'text-[#4F9CF9]'
-                : 'text-white'
+                ? 'text-[#FFFFFF]'
+                : 'text-[#B4B5B6]'
             }`}
           >
             {status}

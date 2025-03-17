@@ -61,9 +61,16 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                         className="w-[36px] h-[36px]"
                         alt="avatar"
                       />
-                      <span className="min-w-[149px]">{player.username}</span>
+                      <span className="min-w-[149px] text-[#FAFAFA]">
+                        {player.username}
+                      </span>
                     </div>
-                    <span className="shrink-0">Убийств: {player.kills}</span>
+                    <span className="shrink-0 text-text-faded">
+                      Убийств:{' '}
+                      <span className="text-text-highlight">
+                        {player.kills}
+                      </span>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -91,7 +98,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
           </div>
           <div className="md:pl-2">
             <div>
-              <ul className="flex gap-[8px]">
+              <ul className="flex gap-[8px] shrink-0">
                 {match.awayTeam.players.map((player, index) => (
                   <li
                     key={index}
@@ -103,9 +110,16 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                         className="w-[36px] h-[36px]"
                         alt="avatar"
                       />
-                      <span className="min-w-[149px]">{player.username}</span>
+                      <span className="min-w-[149px] text-[#FAFAFA]">
+                        {player.username}
+                      </span>
                     </div>
-                    <span className="shrink-0">Убийств: {player.kills}</span>
+                    <span className="shrink-0 text-text-faded">
+                      Убийств:{' '}
+                      <span className="text-text-highlight">
+                        {player.kills}
+                      </span>
+                    </span>
                   </li>
                 ))}
               </ul>
