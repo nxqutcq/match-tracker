@@ -1,0 +1,15 @@
+.refresh-button {
+  display: flex;
+  justify-content: center;
+  background-color: #eb0237;
+  width: 204px;
+  cursor: pointer;
+  height: 56px;
+  padding: 16px;
+  gap: 10px;
+  border-radius: 4px;
+  top: 42px;
+  font-size: 18px;
+  font-weight: 600;
+  @apply active:bg-[#A01131] disabled:bg-[#701328] disabled:cursor-not-allowed;
+}
