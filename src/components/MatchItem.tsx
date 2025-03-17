@@ -8,14 +8,14 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
   return (
     <li
       onClick={() => setIsOpen(!isOpen)}
-      className="bg-[#0B0E12] p-[16px] rounded-[16px] cursor-pointer flex flex-col"
+      className="bg-[#0B0E12] p-[1rem] rounded-[1rem] cursor-pointer flex flex-col"
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-[14px]">
           <img
             src="/src/assets/icons/illustrations_role.svg"
             alt="homeTeam-icon"
-            className="w-6 h-6"
+            className="w-[48px] h-[48px]"
           />
           <div>{match.homeTeam.name}</div>
         </div>
@@ -31,7 +31,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
             <img
               src="/src/assets/icons/illustrations_role.svg"
               alt="awayTeam-icon"
-              className="w-6 h-6"
+              className="w-[48px] h-[48px]"
             />
           </div>
           <button className="ml-2 cursor-pointer">
@@ -46,66 +46,62 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="mt-4 p-[12px]">
-          <div className="flex justify-between">
-            <div className="w-1/2 pr-2">
-              <div>
-                <ul className="flex gap-[8px]">
-                  {match.homeTeam.players.map((player, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center gap-[8px] px-[24px] rounded-[4px] bg-[#101318] justify-between"
-                    >
-                      <div className="flex items-center">
-                        <img
-                          src="/src/assets/images/avatar_global.svg"
-                          className="w-[36px] h-[36px]"
-                          alt="avatar"
-                        />
-                        <span>{player.username}</span>
-                      </div>
-                      <span>Убийств: {player.kills}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-2 flex py-[14px] rounded-[4px] justify-between px-[24px] gap-[8px] text-sm bg-[#101318]">
-                <p>
-                  <span className="text-[#FAFAFA66]">Points:</span> +
-                  <span className="text-[#F2F6F6]">
-                    {match.homeTeam.points}
-                  </span>
-                </p>
-                <p>Place: {match.homeTeam.place}</p>
-                <p>Total Kills: {match.homeTeam.total_kills}</p>
-              </div>
+        <div className="mt-4 p-[12px] grid grid-cols-1 md:grid-cols-2 gap-[12px] overflow-hidden">
+          <div className="md:pr-2">
+            <div>
+              <ul className="flex gap-[0.5rem]">
+                {match.homeTeam.players.map((player, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center gap-[8px] px-[24px] rounded-[4px] bg-[#101318] justify-between"
+                  >
+                    <div className="flex gap-[0.5rem] items-center">
+                      <img
+                        src="/src/assets/images/avatar_global.svg"
+                        className="w-[36px] h-[36px]"
+                        alt="avatar"
+                      />
+                      <span className="min-w-[149px]">{player.username}</span>
+                      <span className="shrink-0">Убийств: {player.kills}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="w-1/2 pl-2">
-              <div>
-                <ul className="flex gap-[8px]">
-                  {match.awayTeam.players.map((player, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center gap-[8px] px-[24px] rounded-[4px] bg-[#101318] justify-between"
-                    >
-                      <div className="flex items-center">
-                        <img
-                          src="/src/assets/images/avatar_global.svg"
-                          className="w-[36px] h-[36px]"
-                          alt="avatar"
-                        />
-                        <span>{player.username}</span>
-                      </div>
-                      <span>Убийств: {player.kills}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-2 flex py-[14px] rounded-[4px] justify-between px-[24px] gap-[8px] text-sm bg-[#101318]">
-                <p>Points: +{match.awayTeam.points}</p>
-                <p>Place: {match.awayTeam.place}</p>
-                <p>Total Kills: {match.awayTeam.total_kills}</p>
-              </div>
+            <div className="mt-2 flex py-[14px] rounded-[4px] justify-between px-[24px] gap-[0.5rem] text-sm bg-[#101318]">
+              <p>
+                <span className="text-[#FAFAFA66]">Points:</span> +
+                <span className="text-[#F2F6F6]">{match.homeTeam.points}</span>
+              </p>
+              <p>Place: {match.homeTeam.place}</p>
+              <p>Total Kills: {match.homeTeam.total_kills}</p>
+            </div>
+          </div>
+          <div className="md:pl-2">
+            <div>
+              <ul className="flex gap-[8px]">
+                {match.awayTeam.players.map((player, index) => (
+                  <li
+                    key={index}
+                    className="flex w-full items-center gap-[0.5rem] px-[24px] rounded-[4px] bg-[#101318] justify-between"
+                  >
+                    <div className="flex items-center">
+                      <img
+                        src="/src/assets/images/avatar_global.svg"
+                        className="w-[36px] h-[36px]"
+                        alt="avatar"
+                      />
+                      <span className="min-w-[149px]">{player.username}</span>
+                      <span className="shrink-0">Убийств: {player.kills}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-2 flex py-[14px] rounded-[4px] justify-between px-[24px] gap-[8px] text-sm bg-[#101318]">
+              <p>Points: +{match.awayTeam.points}</p>
+              <p>Place: {match.awayTeam.place}</p>
+              <p>Total Kills: {match.awayTeam.total_kills}</p>
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @import './_refresh-button.css';
 @import './_fonts.css';
+@import './_loader.css';
 
 #root {
   width: 1920px;
-  height: 1080px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -17,6 +17,10 @@
   background-color: #06080c;
   justify-content: center;
   display: flex;
+}
+
+html {
+  overflow-y: scroll;
 }
 
 body {
@@ -35,13 +39,14 @@ main {
 }
 
 .logo {
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 100%;
   letter-spacing: 0%;
   font-family: 'TacticSans-BldIt';
   font-weight: 400;
   font-style: italic;
   font-display: swap;
+  flex-shrink: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,12 +58,12 @@ main {
 
 .team-name {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .score-text {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 100%;
   letter-spacing: 0%;
 }
