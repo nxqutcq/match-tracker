@@ -17,11 +17,11 @@ const MatchTracker = () => {
   } = useMatchesList()
 
   const [selectedStatus, setSelectedStatus] = useState<
-    MatchStatus | 'All' | null
+    MatchStatus | 'Все статусы' | null
   >(null)
 
   const filteredMatches = matches?.filter((match) =>
-    !selectedStatus || selectedStatus === 'All'
+    !selectedStatus || selectedStatus === 'Все статусы'
       ? true
       : match.status === selectedStatus
   )
@@ -32,13 +32,15 @@ const MatchTracker = () => {
     <main className="max-w-[1836px] min-h-[582px] mx-[0.5rem] md:mx-[2.625rem] mb-[2.625rem] flex flex-col w-full">
       {isFetching && <Loader />}
       <div className="flex justify-between flex-col md:flex-row items-center min-h-[56px] mt-[2.625rem] mb-[20px]">
-        <h1 className="logo">Match Tracker</h1>
-        <StatusDropdown
-          selectedStatus={selectedStatus}
-          onStatusChange={setSelectedStatus}
-        />
+        <div className='flex items-center flex-col md:flex-row  gap-[1.5rem]'>
+          <h1 className="logo">Match Tracker</h1>
+          <StatusDropdown
+            selectedStatus={selectedStatus}
+            onStatusChange={setSelectedStatus}
+          />
+        </div>
         <div className="flex items-center flex-wrap gap-[12px]">
-          {error && <ErrorComponent />}
+          {!error && <ErrorComponent />}
           <RefreshButton refetch={refetch} isLoading={isLoading} />
         </div>
       </div>

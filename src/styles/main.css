@@ -2,6 +2,7 @@
 @import './_refresh-button.css';
 @import './_fonts.css';
 @import './_loader.css';
+@config "../../tailwind.config.js";
 
 #root {
   width: 1920px;
