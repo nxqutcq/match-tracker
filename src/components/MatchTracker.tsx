@@ -3,6 +3,9 @@ import Loader from './shared/Loader'
 import { MatchItem } from './MatchItem'
 import ErrorComponent from './shared/ErrorComponent'
 import RefreshButton from './RefreshButton'
+import { StatusDropdown } from './StatusDropdown'
+import { useState } from 'react'
+import { MatchStatus } from '../types'
 
 const MatchTracker = () => {
   const {
@@ -13,6 +16,16 @@ const MatchTracker = () => {
     isFetching,
   } = useMatchesList()
 
+  const [selectedStatus, setSelectedStatus] = useState<
+    MatchStatus | 'All' | null
+  >(null)
+
+  const filteredMatches = matches?.filter((match) =>
+    !selectedStatus || selectedStatus === 'All'
+      ? true
+      : match.status === selectedStatus
+  )
+
   if (isLoading) return <Loader />
 
   return (
@@ -20,13 +33,17 @@ const MatchTracker = () => {
       {isFetching && <Loader />}
       <div className="flex justify-between flex-col md:flex-row items-center min-h-[56px] mt-[2.625rem] mb-[20px]">
         <h1 className="logo">Match Tracker</h1>
+        <StatusDropdown
+          selectedStatus={selectedStatus}
+          onStatusChange={setSelectedStatus}
+        />
         <div className="flex items-center flex-wrap gap-[12px]">
           {error && <ErrorComponent />}
           <RefreshButton refetch={refetch} isLoading={isLoading} />
         </div>
       </div>
       <ul className="flex flex-col gap-[12px] mt-[20px]">
-        {matches?.map((match) => (
+        {filteredMatches?.map((match) => (
           <MatchItem key={match.title} match={match} />
         ))}
       </ul>
