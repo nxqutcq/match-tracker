@@ -13,7 +13,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-[14px]">
           <img
-            src="/src/assets/icons/illustrations_role.svg"
+            src="/assets/icons/illustrations_role.svg"
             alt="homeTeam-icon"
             className="w-[48px] h-[48px]"
           />
@@ -29,14 +29,14 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
           <div className="flex items-center gap-[14px]">
             <div>{match.awayTeam.name}</div>
             <img
-              src="/src/assets/icons/illustrations_role.svg"
+              src="/assets/icons/illustrations_role.svg"
               alt="awayTeam-icon"
               className="w-[48px] h-[48px]"
             />
           </div>
           <button className="ml-2 cursor-pointer">
             <img
-              src="/src/assets/icons/arrow drop-list down.svg"
+              src="/assets/icons/arrow drop-list down.svg"
               alt={isOpen ? 'Collapse' : 'Expand'}
               className={`w-6 h-6 transition-transform duration-200 ${
                 isOpen ? 'rotate-180' : ''
@@ -57,7 +57,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                   >
                     <div className="flex gap-[0.5rem] items-center">
                       <img
-                        src="/src/assets/images/avatar_global.svg"
+                        src="/assets/images/avatar_global.svg"
                         className="w-[36px] h-[36px]"
                         alt="avatar"
                       />
@@ -87,7 +87,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
                   >
                     <div className="flex items-center">
                       <img
-                        src="/src/assets/images/avatar_global.svg"
+                        src="/assets/images/avatar_global.svg"
                         className="w-[36px] h-[36px]"
                         alt="avatar"
                       />

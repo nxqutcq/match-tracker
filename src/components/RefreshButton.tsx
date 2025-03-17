@@ -13,7 +13,7 @@ export const RefreshButton = ({ isLoading, refetch }: RefreshButtonProps) => {
       <span>Обновить</span>
       <img
         className="w-[26px] h-[26px]"
-        src="/src/assets/icons/Refresh.svg"
+        src="/assets/icons/Refresh.svg"
         alt="refresh-icon"
       />
     </button>
