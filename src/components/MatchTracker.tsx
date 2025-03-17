@@ -1,35 +1,52 @@
-import React from 'react'
 import { useMatchesList } from '../services/queries'
+import { MatchItem } from './MatchItem'
 
-const MatchTracker: React.FC = () => {
+const MatchTracker = () => {
   const { data: matches, error, isLoading, refetch } = useMatchesList()
 
   if (isLoading) {
-    return <div>Загрузка...</div>
-  }
-
-  if (error) {
-    return <div>Ошибка: не удалось загрузить информацию</div>
+    return (
+      <div className="max-w-[1836px] w-full items-center flex justify-center min-h-dvh">
+        Загрузка...
+      </div>
+    )
   }
 
   return (
-    <div>
-      <h1>Матч-трекер</h1>
-      <button onClick={() => refetch()}>Обновить</button>
-      <ul>
+    <main className="max-w-[1836px] min-h-[582px] mx-[42px] flex flex-col w-full">
+      <div className="flex justify-between items-center min-h-[56px] mt-[42px] mb-[20px]">
+        <h1 className="logo">Match Tracker</h1>
+        <div className="flex items-center gap-[12px]">
+          {error && (
+            <span className="bg-[#0F1318] flex items-center gap-[10px] text-lg rounded-[4px] p-[16px]">
+              <img
+                className="w-[28px] h-[28px]"
+                src="/src/assets/icons/alert.svg"
+                alt="alert-icon"
+              />
+              Ошибка: не удалось загрузить информацию
+            </span>
+          )}
+          <button
+            disabled={isLoading}
+            className="refresh-button"
+            onClick={() => refetch()}
+          >
+            <span>Обновить</span>
+            <img
+              className="w-[26px] h-[26px]"
+              src="/src/assets/icons/Refresh.svg"
+              alt="refresh-icon"
+            />
+          </button>
+        </div>
+      </div>
+      <ul className="flex flex-col gap-[12px] mt-[20px]">
         {matches?.map((match) => (
-          <li key={match.title}>
-            <div>
-              {match.homeTeam.name} - {match.awayTeam.name}
-            </div>
-            <div>
-              Счет: {match.homeScore}:{match.awayScore}
-            </div>
-            <div>Статус: {match.status}</div>
-          </li>
+          <MatchItem key={match.title} match={match} />
         ))}
       </ul>
-    </div>
+    </main>
   )
 }
 
