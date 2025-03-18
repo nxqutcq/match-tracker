@@ -7,7 +7,7 @@ export const RefreshButton = ({ isLoading, refetch }: RefreshButtonProps) => {
   return (
     <button
       disabled={isLoading}
-      className="refresh-button"
+      className="refresh-button items-center"
       onClick={() => refetch()}
     >
       <span>Обновить</span>

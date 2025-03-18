@@ -26,11 +26,10 @@ const MatchTracker = () => {
       : match.status === selectedStatus
   )
 
-  if (isLoading) return <Loader />
+  if (isFetching) return <Loader />
 
   return (
     <main className="max-w-[1836px] min-h-[582px] mx-[1rem] md:mx-[2.625rem] mb-[2.625rem] flex flex-col w-full">
-      {isFetching && <Loader />}
       <div className="flex flex-wrap gap-[1rem] justify-between flex-col md:flex-row items-center min-h-[56px] mt-[2.625rem]">
         <div className="flex items-center flex-col xs:w-full md:w-fit md:flex-row gap-[1.5rem]">
           <h1 className="logo">Match Tracker</h1>

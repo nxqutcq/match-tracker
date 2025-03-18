@@ -45,7 +45,6 @@ main {
   letter-spacing: 0%;
   font-family: 'TacticSans-BldIt';
   font-weight: 400;
-  font-style: italic;
   font-display: swap;
   flex-shrink: 0;
 }
@@ -59,12 +58,12 @@ main {
 
 .team-name {
   font-weight: 600;
-  @apply text-[0.875rem] md:text-[1rem];
+  @apply text-sm md:text-[1rem];
 }
 
 .score-text {
   font-weight: 600;
   line-height: 100%;
   letter-spacing: 0%;
-  @apply text-[0.875rem] md:text-[1.25rem];
+  @apply text-sm md:text-xl;
 }

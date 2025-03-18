@@ -8,7 +8,6 @@
   gap: 0.625rem;
   border-radius: 0.25rem;
   top: 2.625rem;
-  font-size: 1.125rem;
   font-weight: 600;
-  @apply active:bg-[#A01131] disabled:bg-[#701328] w-full md:w-[12.75rem] disabled:cursor-not-allowed;
+  @apply active:bg-[#A01131] disabled:bg-[#701328] text-lg w-full md:w-[12.75rem] disabled:cursor-not-allowed;
 }

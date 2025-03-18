@@ -10,14 +10,14 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
   return (
     <li
       onClick={() => setIsOpen(!isOpen)}
-      className="bg-[#0B0E12] p-[1rem] rounded-[1rem] cursor-pointer flex flex-col"
+      className="bg-[#0B0E12] pb-[0] md:pb-[1rem] p-[1rem] rounded-[1rem] cursor-pointer flex flex-col"
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-[14px]">
           <img
             src="/assets/icons/illustrations_role.svg"
             alt="homeTeam-icon"
-            className="w-[auto] h-[auto]"
+            className="md:w-[48px] md:h-[48px] w-[28px] h-[28px]"
           />
           <div className="team-name">{match.homeTeam.name}</div>
         </div>
@@ -33,7 +33,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
             <img
               src="/assets/icons/illustrations_role.svg"
               alt="awayTeam-icon"
-              className="w-[48px] h-[48px]"
+              className="md:w-[48px] md:h-[48px] w-[28px] h-[28px]"
             />
           </div>
           <button className="ml-2 hidden md:block cursor-pointer">
@@ -48,7 +48,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="mt-4 p-[12px] grid grid-cols-1 md:grid-cols-2 gap-[12px] overflow-hidden">
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-[12px] overflow-hidden">
           <div>
             <PlayerList players={match.homeTeam.players} />
             <TeamSummary
@@ -70,17 +70,19 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
               totalKills={match.awayTeam.total_kills}
             />
           </div>
-          <button className="ml-2 justify-center md:hidden items-center cursor-pointer">
-            <img
-              src="/assets/icons/arrow drop-list down.svg"
-              alt={isOpen ? 'Collapse' : 'Expand'}
-              className={`w-6 h-6 transition-transform duration-200 ${
-                isOpen ? 'rotate-180' : ''
-              }`}
-            />
-          </button>
         </div>
       )}
+      <div className="flex w-full p-[0.5rem] items-center md:hidden justify-center">
+        <button className="ml-2 cursor-pointer">
+          <img
+            src="/assets/icons/arrow drop-list down.svg"
+            alt={isOpen ? 'Collapse' : 'Expand'}
+            className={`w-6 h-6 transition-transform duration-200 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+          />
+        </button>
+      </div>
     </li>
   )
 }
