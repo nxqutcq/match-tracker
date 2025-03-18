@@ -31,14 +31,14 @@ const MatchTracker = () => {
   return (
     <main className="max-w-[1836px] min-h-[582px] mx-[1rem] md:mx-[2.625rem] mb-[2.625rem] flex flex-col w-full">
       <div className="flex flex-wrap gap-[1rem] justify-between flex-col md:flex-row items-center min-h-[56px] mt-[2.625rem]">
-        <div className="flex items-center flex-col xs:w-full md:w-fit md:flex-row gap-[1.5rem]">
+        <div className="flex items-center flex-col xxs:w-full xs:w-full md:w-fit md:flex-row gap-[1.5rem]">
           <h1 className="logo">Match Tracker</h1>
           <StatusDropdown
             selectedStatus={selectedStatus}
             onStatusChange={setSelectedStatus}
           />
         </div>
-        <div className="flex items-center xs:w-full md:w-fit flex-col md:flex-row gap-[12px]">
+        <div className="flex items-center xs:w-full xxs:w-full md:w-fit flex-col md:flex-row gap-[12px]">
           {error && <ErrorComponent />}
           <RefreshButton refetch={refetch} isLoading={isLoading} />
         </div>

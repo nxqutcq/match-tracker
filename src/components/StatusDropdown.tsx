@@ -20,7 +20,7 @@ export const StatusDropdown = ({
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="relative w-full md:min-w-[170px]">
+    <div className="relative w-full xxs:w-full md:min-w-[170px]">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`${

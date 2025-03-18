@@ -41,14 +41,23 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
               src="/assets/icons/arrow drop-list down.svg"
               alt={isOpen ? 'Collapse' : 'Expand'}
               className={`w-6 h-6 transition-transform duration-200 ${
-                isOpen ? 'rotate-180' : ''
+                isOpen ? 'hidden' : 'block'
+              }`}
+            />
+          </button>
+          <button className="ml-2 hidden md:block cursor-pointer">
+            <img
+              src="/assets/icons/chevron-up.svg"
+              alt={isOpen ? 'Collapse' : 'Expand'}
+              className={`w-6 h-6 transition-transform duration-200 ${
+                isOpen ? 'block' : 'hidden'
               }`}
             />
           </button>
         </div>
       </div>
       {isOpen && (
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-[12px] overflow-hidden">
+        <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-[12px] overflow-hidden">
           <div className="flex flex-col justify-between">
             <PlayerList players={match.homeTeam.players} />
             <TeamSummary
@@ -57,7 +66,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
               totalKills={match.homeTeam.total_kills}
             />
           </div>
-          <div className="md:hidden flex w-full gap-[10px] items-center">
+          <div className="lg:hidden flex w-full gap-[10px] items-center">
             <div className="flex-grow border-t border-[#13181F]"></div>
             <span className="px-2 text-sm text-[#313A47]">VS</span>
             <div className="flex-grow border-t border-[#13181F]"></div>
