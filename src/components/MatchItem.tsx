@@ -10,10 +10,10 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
   return (
     <li
       onClick={() => setIsOpen(!isOpen)}
-      className="bg-[#0B0E12] pb-[0] md:pb-[1rem] p-[1rem] rounded-[1rem] cursor-pointer flex flex-col"
+      className="bg-[#0B0E12] pb-[0] md:pb-[1rem] p-[0.5rem] md:p-[1rem] rounded-[4px] cursor-pointer flex flex-col"
     >
       <div className="flex justify-between items-center">
-        <div className="flex items-center gap-[14px]">
+        <div className="flex items-center gap-[6px] md:gap-[14px]">
           <img
             src="/assets/icons/illustrations_role.svg"
             alt="homeTeam-icon"
@@ -23,7 +23,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
         </div>
         <div className="flex flex-col items-center gap-[4px] min-h-[55px] max-w-[92px] w-full justify-center">
           <div className="score-text">
-            {match.homeScore}:{match.awayScore}
+            {match.homeScore} : {match.awayScore}
           </div>
           <StatusBadge status={match.status} />
         </div>
@@ -49,7 +49,7 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
       </div>
       {isOpen && (
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-[12px] overflow-hidden">
-          <div>
+          <div className="flex flex-col justify-between">
             <PlayerList players={match.homeTeam.players} />
             <TeamSummary
               points={match.homeTeam.points}
@@ -78,7 +78,16 @@ export const MatchItem: React.FC<{ match: Match }> = ({ match }) => {
             src="/assets/icons/arrow drop-list down.svg"
             alt={isOpen ? 'Collapse' : 'Expand'}
             className={`w-6 h-6 transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
+              isOpen ? 'hidden' : 'block'
+            }`}
+          />
+        </button>
+        <button className="ml-2 cursor-pointer">
+          <img
+            src="/assets/icons/chevron-up.svg"
+            alt={isOpen ? 'Collapse' : 'Expand'}
+            className={`w-6 h-6 transition-transform duration-200 ${
+              isOpen ? 'block' : 'hidden'
             }`}
           />
         </button>

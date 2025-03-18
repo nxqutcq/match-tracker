@@ -59,6 +59,8 @@ main {
 .team-name {
   font-weight: 600;
   @apply text-sm md:text-[1rem];
+  line-height: 100%;
+  letter-spacing: 0%;
 }
 
 .score-text {
