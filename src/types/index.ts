@@ -29,3 +29,13 @@ export interface ApiResponse {
     matches: Match[]
   }
 }
+
+export interface PlayerListProps {
+  players: Player[]
+}
+
+export interface TeamSummaryProps {
+  points: number
+  place: number
+  totalKills: number
+}
